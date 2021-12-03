@@ -1,0 +1,60 @@
+package hw1;
+
+import java.util.Scanner;
+
+public class cash {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		        
+		Scanner info = new Scanner(System.in);
+	    System.out.print("Change owed: ");
+	
+	        
+	    double dollars = info.nextDouble();
+	    
+	    while (dollars <= 0 || dollars == (' ')) {
+	    	System.out.print("Change owed: ");
+	        dollars = info.nextDouble();
+	       }
+	    
+	    int cents = (int)Math.round(dollars * 100);
+	    //System.out.print(cents);
+	    int count = 0;
+	    int bills = 0;
+	    
+	    if (dollars >= 1.00) {
+	    	bills = cents/100;
+	    	cents = cents - (bills*100);
+	    }
+	    
+	    while (cents >= 25) { 
+	    	count++;
+	        cents -= 25;
+	   }
+	       
+	    while (cents >= 10) {
+	    	count++;
+	        cents -= 10;
+	    }
+	       
+	    while (cents >= 5) { 
+	    	count++;
+	    	cents -= 5;
+       }
+	       
+       while (cents >= 1) { 
+    	   count++;
+           cents -= 1;
+       }
+       
+       if (bills > 0) {
+    	   System.out.println(bills + " bill(s) and " + count + " coins.");
+       }
+       else {
+    	   System.out.println(count);
+       }
+      
+   }
+	
+}
